@@ -8,7 +8,7 @@ fi
 # Install Drupal
 sudo chown -R "$USER" "$WEB_ROOT"
 cd "$WEB_ROOT" || exit
-mv index.html index.html.orig
+[ -f index.html ] && mv index.html index.html.orig
 drush dl drupal --drupal-project-rename="$DRUPAL_HOME"
 
 # Setup Drupal
