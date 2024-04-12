@@ -15,8 +15,8 @@ drush dl drupal --drupal-project-rename="$DRUPAL_HOME"
 cd "$DRUPAL_HOME" || exit
 cp sites/default/default.settings.php sites/default/settings.php
 mkdir sites/default/files/
-sudo chgrp -R www-data sites/default/files/
-sudo chmod g+rw sites/default/files/
+sudo chgrp -R www-data sites/default/files/ # NOTE: Incorporate apachectl -S 2> /dev/null | grep 'User' | awk -F '"' '{print $2}'
+sudo chmod g+rw sites/default/files/ # TODO: Checkout Tripal 4 readthedocs and checkout other way to fix directory permissions
 
 drush site-install standard --db-url=pgsql://"$psqluser":"$PGPASSWORD"@localhost:5432/"$psqldb" --account-mail="$drupal_mail" --account-name="$drupal_user" --account-pass="$drupal_pass" --site-mail="$drupal_mail" --site-name="$drupal_site_name" install_configure_form.site_default_country="$drupal_country_code" -y
 
