@@ -5,6 +5,9 @@ if type _printtitle &> /dev/null; then
   _printtitle "SETTING UP - CRON"
 fi
 
+# Store drupal cron key in a variable
+drupal_cron_key=$(drush variable-get --root="$WEB_ROOT"/"$DRUPAL_HOME" | grep cron_key | awk '{print $2}')
+
 # Disable drupal cron to prevent website slowing down when users visit
 drush vset cron_safe_threshold 0 --root="$WEB_ROOT"/"$DRUPAL_HOME"
 

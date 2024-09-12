@@ -11,8 +11,10 @@ if command -v apt-get > /dev/null; then # Install for debian-based distros
 fi
 
 # Setup apache
-cd /etc/apache2/mods-enabled || exit
-sudo ln -s ../mods-available/rewrite.load # Enable Rewrite module for apache
+if [ ! -f /etc/apache2/mods-enabled/rewrite.load ]; then # Enable Rewrite module for apache
+  cd /etc/apache2/mods-enabled || exit
+  sudo ln -s ../mods-available/rewrite.load
+fi
 sudo sed -i "\$i<Directory $WEB_ROOT>\n   Options Indexes FollowSymLinks MultiViews\n   AllowOverride All\n   Order allow,deny\n   allow from all\n</Directory>" /etc/apache2/sites-available/000-default.conf # Set web root directory
 
 # Restart apache for the new configurations to take effect
