@@ -11,12 +11,19 @@ Bash script to install and setup a basic working tripal website.
 - It is better if the installation is new with no extra modification.
 
 # Usage
+Execute the following commands one by one from a terminal:
 ```bash
-git clone https://github.com/shreyas-a-s/oneclick-website-deployer.git
-cd oneclick-website-deployer/
-./install-tripal.sh
+sudo apt update && sudo apt install git -y
+git clone -b dev https://github.com/shreyas-a-s/oneclick-website-deployer.git
+cd oneclick-website-deployer/scripts/
+./install.sh
 ```
-For a single line command, use:
+OR use this single line command from a terminal:
 ```bash
-git clone https://github.com/shreyas-a-s/oneclick-website-deployer.git && cd oneclick-website-deployer/ && ./install-tripal.sh
+sudo apt update && sudo apt install git -y && git clone -b dev https://github.com/shreyas-a-s/oneclick-website-deployer.git && cd oneclick-website-deployer/scripts/ && ./install.sh
 ```
+OR if you want the simplest way:
+```
+Just right click the one-click.sh file and click "Run as a Program" and follow the prompts.
+```
+>  NOTE: In some systems, right click menu might not have this option. In that case, just double click the file and select "Run in Terminal".
