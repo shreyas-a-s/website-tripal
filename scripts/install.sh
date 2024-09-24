@@ -111,7 +111,8 @@ composer update
 drush cache-clear drush
 drush cache-clear theme-registry
 drush cache-clear router
-# drush cache-clear css-js FIX: Why this command errors out saying 'Permission denied in /var/www/html/dw/web/sites/default/files/css'
+# FIX: Why this command errors out saying 'Permission denied in /var/www/html/dw/web/sites/default/files/css'
+# drush cache-clear css-js
 drush cache-clear render
 drush cache-clear plugin
 drush cache-clear bin default
