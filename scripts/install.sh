@@ -36,7 +36,7 @@ sudo apt install php-pgsql php-gd php-xml php-curl php-apcu php-uploadprogress -
 read -r -p "How much memory to allocate to the website (in MB)? " memorylimit
 sudo sed -i "/memory_limit/ c\memory_limit = $memorylimit\M" /etc/php/"$phpversion"/apache2/php.ini
 sudo service apache2 restart
-sudo apt install postgresql phppgadmin composer -y
+sudo apt install postgresql composer -y
 
 # Basic database creation
 echo "___Postgres Database Creation___"
