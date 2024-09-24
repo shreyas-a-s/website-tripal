@@ -51,7 +51,7 @@ psql -U "$psqluser" -d "$psqldb" -h localhost -c "CREATE EXTENSION pg_trgm;"
 cd "$DRUPAL_HOME" || exit
 sudo chown -R "$USER" "$DRUPAL_HOME"
 read -r -p "Enter the name of new directory to which drupal website needs to be installed: " drupalsitedir
-composer create-project drupal/recommended-project "$drupalsitedir"
+composer create-project drupal/recommended-project:^10 "$drupalsitedir"
 cd "$drupalsitedir" || exit
 composer require drush/drush
 composer require drupal/core
