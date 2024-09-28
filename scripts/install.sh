@@ -103,6 +103,13 @@ echo "After completing these steps, come back and type 'yes' to continue."
 continueORNot
 drush trp-run-jobs --username="$smausername"
 
+#Install tripal_blast
+echo "Installing tripal blast..."
+sleep 2
+mkdir "$DRUPAL_HOME"/"$drupalsitedir"/web/modules/custom
+git clone https://github.com/tripal/tripal_blast "$DRUPAL_HOME"/"$drupalsitedir"/web/modules/custom/tripal_blast
+"$DRUPAL_HOME"/"$drupalsitedir"/vendor/bin/drush pm-enable tripal_blast
+
 # Closing
 echo "Installation completed. Press any key to update all modules using composer and exit from installation."
 read -r -s -n 1
